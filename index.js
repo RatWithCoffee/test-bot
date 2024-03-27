@@ -24,6 +24,7 @@ bot.hears('Посмотреть результаты', (ctx) => {
     sendExcelFile(ctx,  xlsxFile);
 });
 
+
 const sendNotification = async () => {
     const jsonIds = fs.readFileSync( usersFile, 'utf8');
     const ids = JSON.parse(jsonIds).users;
@@ -35,7 +36,7 @@ const sendNotification = async () => {
     }
 }
 
-bot.on(message('web_app_data'), async (ctx) => {
+bot.on(message('web_app_data'), (ctx) => {
     const survey = ctx.message.web_app_data.data;
     console.log("Новый опрос получен: ", survey);
     fs.writeFileSync(surveyFile, survey); // записываем опрос в файл
