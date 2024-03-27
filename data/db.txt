@@ -1,0 +1,90 @@
+{
+    "Survey 1": {
+        "How are you?": [
+            "i want to die",
+            "ok",
+            "good",
+            "good",
+            "ok",
+            "i want to die",
+            "i want to die",
+            "ok",
+            "good",
+            "good",
+            "ok",
+            "i want to die",
+            "i want to die",
+            "ok",
+            "good",
+            "good",
+            "ok",
+            "i want to die",
+            "i want to die",
+            "ok",
+            "good",
+            "good",
+            "ok",
+            "i want to die"
+        ],
+        "Describe yourself in 3 words: ": [
+            "i want die",
+            "very handsome man",
+            "very ugly man",
+            "fuck off",
+            "i eat monkeys",
+            "super mega epic"
+        ],
+        "Choose multiple: ": [
+            ["i am a felon wanted in 30 states", "I am a gamer"],
+            ["I am a felon wanted in 30 states", "I am innocent", "I am a gamer"],
+            ["I am a gamer"],
+            ["I am innocent", "I am a gamer"],
+            ["I am innocent"],
+            ["I am a moron", " I am a gamer"]
+        ]
+    },
+        "Survey 2": {
+        "How are you?????": [
+            "i want to die",
+            "ok",
+            "good",
+            "good",
+            "ok",
+            "i want to die",
+            "i want to die",
+            "ok",
+            "good",
+            "good",
+            "ok",
+            "i want to die",
+            "i want to die",
+            "ok",
+            "good",
+            "good",
+            "ok",
+            "i want to die",
+            "i want to die",
+            "ok",
+            "good",
+            "good",
+            "ok",
+            "i want to die"
+        ],
+        "Describe! yourself in 3 words: ": [
+            "i want die",
+            "very handsome man",
+            "very ugly man",
+            "fuck off",
+            "i eat monkeys",
+            "super mega epic"
+        ],
+        "Choose mu!2ltiple: ": [
+            ["i am a felon wanted in 30 states", "I am a gamer"],
+            ["I am a felon wanted in 30 states", "I am innocent", "I am a gamer"],
+            ["I am a gamer"],
+            ["I am innocent", "I am a gamer"],
+            ["I am innocent"],
+            ["I am a moron", " I am a gamer"]
+        ]
+    }
+}
