@@ -5,10 +5,11 @@ import fs from 'fs';
 import { sendExcelFile } from './export.js';
 import { bot } from "./consts.js";
 
-const xlsxFile = "responses.xlsx"; // файл для хранения созданного xlsx
-const usersFile = "users_id.json"; // файл содержащий id пользователей
-const surveyFile = "survey.json";
-const db = "db.json";
+
+export const xlsxFile = "responses.xlsx"; // файл для хранения созданного xlsx
+export const usersFile = "users_id.json"; // файл содержащий id пользователей
+export const surveyFile = "survey.json";
+export const ansFile = "ans.json";
 
 bot.start(async (ctx) =>
     await ctx.reply('Привет, админ!', {
