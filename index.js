@@ -2,48 +2,23 @@ import { message } from 'telegraf/filters'
 import 'dotenv/config'
 import * as consts from './consts.js'
 import fs from 'fs';
-import { sendExcelFile } from './export.js';
+import { sendExcelFile } from './admin_part/export.js';
 import { bot } from "./consts.js";
+import { session, Scenes, Markup } from 'telegraf';
 
+import adminScene from './admin_part/admin_scene.js' 
 
-export const xlsxFile = "responses.xlsx"; // файл для хранения созданного xlsx
-export const usersFile = "users_id.json"; // файл содержащий id пользователей
-export const surveyFile = "survey.json";
-export const ansFile = "ans.json";
+const stage = new Scenes.Stage([adminScene]);
+bot.use(session());
+bot.use(stage.middleware());
 
-bot.start(async (ctx) =>
-    await ctx.reply('Привет, админ!', {
-        reply_markup: {
-            keyboard: [
-                [{ text: 'Создать опрос', web_app: { url: consts.WEB_APP_URL_CREATE } }],
-                ['Посмотреть результаты']
-            ]
-        }
-    })
-);
+bot.start(async (ctx) => ctx.reply('Привет! Чтобы пройти опрос введи команду /quiz'))
 
-bot.hears('Посмотреть результаты', (ctx) => {
-    sendExcelFile(ctx, db, xlsxFile);
+// Обработчик команды /admin
+bot.command('admin', (ctx) => {
+    ctx.scene.enter('adminScene');
 });
 
-
-const sendNotification = async () => {
-    const jsonIds = fs.readFileSync( usersFile, 'utf8');
-    const ids = JSON.parse(jsonIds).users;
-    for (let id in ids) {
-        await bot.telegram.sendMessage(id, "Пройдите новый опрос. Используйте команду /quiz, чтобы начать")
-            .then(() => console.log('Сообщение успешно отправлено'))
-            .catch((error) => console.error('Ошибка отправки сообщения:', error));;
-
-    }
-}
-
-bot.on(message('web_app_data'), (ctx) => {
-    const survey = ctx.message.web_app_data.data;
-    console.log("Новый опрос получен: ", survey);
-    fs.writeFileSync(surveyFile, survey); // записываем опрос в файл
-    sendNotification(); // отправляем пользователям уведомление, что новый опрос доступен
-});
 
 
 bot.launch()

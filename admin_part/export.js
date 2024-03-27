@@ -1,6 +1,6 @@
 import fs from 'fs';
 import xlsx from "json-as-xlsx";
-import { bot } from "./consts.js";
+import { bot } from "../consts.js";
 
 const sendDocument = async (chatId, documentPath, caption) => {
     try {
