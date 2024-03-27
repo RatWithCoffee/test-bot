@@ -12,8 +12,9 @@ const sendDocument = async (chatId, documentPath, caption) => {
 };
 
 
-export const sendExcelFile = (ctx, filePath) => {
-    fs.readFile(filePath, 'utf8', (err, data) => {
+export const sendExcelFile = async (ctx, sourceFilePath, destFilePath) => {
+    console.log(sourceFilePath)
+    fs.readFile(sourceFilePath, 'utf8', async (err, data) => {
         if (err) {
             console.error('Error reading the file:', err);  
             return;
@@ -23,7 +24,7 @@ export const sendExcelFile = (ctx, filePath) => {
         try {
             jsonData = JSON.parse(data);
         } catch (parseError) {
-            // console.error('Error parsing JSON data:', parseError);
+            console.error('Error parsing JSON data:', parseError);
             return;
         }
 
@@ -79,10 +80,12 @@ export const sendExcelFile = (ctx, filePath) => {
             extraLength: 3, // A bigger number means that columns will be wider
         }
 
+        console.log(processedData)
         // Generate the Excel file
         xlsx(processedData, settings);
         console.log('Excel file has been created successfully');
+        sendDocument(ctx.message.chat.id, destFilePath, "");
     })
-    sendDocument(ctx.message.chat.id, "Responses.xlsx", "");
+   
 }
 

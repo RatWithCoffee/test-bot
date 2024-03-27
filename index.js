@@ -8,6 +8,7 @@ import { bot } from "./consts.js";
 const xlsxFile = "responses.xlsx"; // файл для хранения созданного xlsx
 const usersFile = "users_id.json"; // файл содержащий id пользователей
 const surveyFile = "survey.json";
+const db = "db.json";
 
 bot.start(async (ctx) =>
     await ctx.reply('Привет, админ!', {
@@ -21,7 +22,7 @@ bot.start(async (ctx) =>
 );
 
 bot.hears('Посмотреть результаты', (ctx) => {
-    sendExcelFile(ctx,  xlsxFile);
+    sendExcelFile(ctx, db, xlsxFile);
 });
 
 
